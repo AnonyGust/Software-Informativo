@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <div class="logo">
+                <img class="imgone" src="img/logo infatec.png" alt="">
+                <img class="imgtwo" src="img/INFATEC (2).png" alt="">
+            </div>
+            <div class="btns">
+                <button class="btnLogin-popup">Login</button>
+                <button class="btnRegistro-popup">Registro</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box login">
+
+            <form id="login_form" action="./pagina_adm/index.html" onsubmit="onLoginUser(event)">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Ra</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Senha</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Relembre meus dados</label>
+                    <a href="#" class="forgot-password-link">esqueceu sua senha?</a>
+                </div>
+                <a href="./pagina adm/index.html"></a><button type="submit" class="btn">Login</button></a>
+                <div class="login-register">
+                    <p>não possui uma conta?<a href="#" class="register-link"> Registrar</a></p>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="forgot-password">
+            <form id="forgot-password-form" action="#">
+                <h2>Esqueceu sua senha</h2>
+                <h4>Digite seu e-mail para receber o código <br> e redefinir sua senha</h4>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <button type="submit" class="btn">Enviar</button>
+                <p><a href="#" class="back-to-login">Voltar ao login</a></p>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>Registrar</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Nome</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="school"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Ra</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Senha</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Concordo com os termos e condições</label>
+                </div>
+                <button type="submit" class="btn"> Cadastrar</button>
+                <div class="login-register">
+                    <p>Já possui uma conta?<a href="#" class="login-link"> Entrar</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const header = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+
+        fetch("http://localhost:5230/WeatherForecast", header)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error al obtener los datos');
+                }
+            })
+            .then((data) => {
+                console.log(JSON.stringify(data));
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    </script>
+</body>
+
+</html>

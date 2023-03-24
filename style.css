@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: antiquewhite;
+    background-size: contain;
+
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 99;
+}
+
+
+
+.logo {
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.imgone {
+    width: 3rem;
+    height: 3rem;
+}
+
+.imgtwo {
+    width: 10rem;
+    height: 1.5rem;
+}
+
+.navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.navigation .btnLogin-popup,
+.navigation .btnRegistro-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation .btnLogin-popup:hover,
+.navigation .btnRegistro-popup:hover {
+    background-color: white;
+    color: black;
+    transition: .4s;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .5s ease, height .2s ease;
+    overflow: hidden;
+    transform: scale(0);
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+/* Tamanho da div active */
+.wrapper.active {
+    height: 520px;
+    top: 50px;
+}
+
+/* Tamanho da div activetwo */
+.wrapper.activetwo {
+    height: 400px;
+    top: 50px;
+}
+
+/*  */
+.wrapper.active-popup-registro {
+    display: flex;
+}
+
+/* formulário de login */
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+/* formulário de login indo para a direita -400px*/
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translate(-400px);
+}
+
+/* formulário de login com a classe js 'activetwo' indo para a direita -400px*/
+.wrapper.activetwo .form-box.login {
+    transition: none;
+    transform: translate(-400px);
+}
+
+/* formulário de registro  indo para a esquerda com 400px*/
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .forgot-password {
+    transform: translateX(400px);
+    position: absolute;
+}
+
+.wrapper.activetwo .forgot-password {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.forgot-password h2,
+h4 {
+    text-align: center;
+}
+
+.forgot-password h2 {
+    margin: 0 0 20px 0;
+}
+
+.back-to-login {
+    text-decoration: none;
+    color: #162938;
+    position: relative;
+    top: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.back-to-login:hover {
+    text-decoration: underline;
+}
+
+#back-to-login-link h2 {
+    display: none;
+}
+
+.voltarlogin {
+    margin-top: 10px;
+}
+
+#forgot-password-form {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#forgot-password-form.hidden {
+    opacity: 0;
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+
+}
+
+.remember-forgot a {
+    color: #162938;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-top: 1.5px;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    color: white;
+}
+
+.btn:hover{
+    color: rgb(219, 212, 212);
+}
+
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+
+}

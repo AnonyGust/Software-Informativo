@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Minha Landing Page</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navigation">
+        <div class="logo">
+            <img class="imgone" src="img/logo infatec.png" alt="">
+            <img class="imgtwo" src="img/INFATEC (2).png" alt="">
+        </div>
+    </nav>
+</header>
+	<main>
+		<div class="center">
+			<ion-icon class="eventos-icon" name="school"></ion-icon>
+      		<button id="eventos">Eventos</button>
+			<ion-icon class="avisos-icon" name="alert-circle"></ion-icon>
+      		<button id="avisos">Avisos</button>
+			<ion-icon class="cronogramas-icon" name="calendar"></ion-icon>
+      		<button id="cronogramas">Cronogramas</button>
+    	</div>
+    	<form id="eventos-form">
+    		<span class="icon-close">
+          <ion-icon name="close"></ion-icon>
+        </span>
+    		<h2>Enviar Evento</h2>
+      		<label for="titulo">Título do Evento:</label>
+      		<input type="text" id="titulo" name="titulo">
+      		<label for="descricao">Descrição do Evento:</label>
+      		<textarea id="descricao" name="descricao"></textarea>
+      		<label for="imagem">Anexar Imagem:</label>
+      		<input type="file" id="imagem" name="imagem">
+      		<button type="submit">Enviar</button>
+    	</form>
+
+    	<form id="avisos-form">
+    		<span class="icon-close">
+          <ion-icon name="close"></ion-icon>
+        </span>
+    		<h2>Enviar Aviso</h2>
+      		<label for="aviso">Descrição do Aviso:</label>
+      		<input type="text" id="aviso" name="aviso">
+      		<label for="imagem">Anexar Imagem:</label>
+      		<input type="file" id="imagem" name="imagem">
+      		<button type="submit">Enviar</button>
+		</form>
+
+    	<form id="cronogramas-form">
+    		<span class="icon-close">
+          <ion-icon name="close"></ion-icon>
+        </span>
+    		<h2>Enviar Cronograma</h2>
+      		<label for="titulo">Título do Cronograma:</label>
+      		<input type="text" id="titulo" name="titulo">
+      		<label for="descricao">Descrição do Cronograma:</label>
+      		<textarea id="descricao" name="descricao"></textarea>
+      		<label for="imagem">Anexar Imagem:</label>
+      		<input type="file" id="imagem" name="imagem">
+      		<button type="submit">Enviar</button>
+    	</form>
+
+  	</main>
+  	<script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+  
