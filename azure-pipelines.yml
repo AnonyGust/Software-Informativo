@@ -17,3 +17,8 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- uses: Azure/pipelines@v1
+  with:
+    azure-devops-project-url: 'https://dev.azure.com/gustavolima13/Software%20informativo'
+    azure-pipeline-name: 'Set up CI with Azure Pipelines' # name of the Azure pipeline to be triggered
+    azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
