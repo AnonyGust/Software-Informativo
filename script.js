@@ -23,6 +23,8 @@ loginLink.addEventListener('click', () => {
   document.getElementById('register_ra').value=""
   document.getElementById('register_email').value=""
   document.getElementById('register_password').value=""
+  document.getElementById('error_login').innerHTML = ""
+  response.innerHTML = ""
   //
   wrapper.classList.remove('active')
 });
@@ -68,8 +70,6 @@ backtoLogin.addEventListener('click', () => {
 
 
 });
-
-
 
 //INTEGRACAO BASICA API
 
@@ -126,7 +126,6 @@ function onRegisterNewUser() {
 function onLoginUser() {
 
 }
-
 
 //FUNÇÃO PARA LOGIN
 
