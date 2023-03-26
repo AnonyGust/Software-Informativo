@@ -8,34 +8,49 @@ const forgot = document.querySelector('.forgot-password-link');
 const backtoLogin = document.querySelector('.back-to-login');
 const response = document.getElementById("response")
 const base_uri = 'http://localhost:5230/api'
-
+//ABACATE
 registerLink.addEventListener('click', () => {
-  wrapper.classList.toggle('active');
+  wrapper.classList.add('active')
 });
 
 loginLink.addEventListener('click', () => {
-  wrapper.classList.toggle('active');
+  wrapper.classList.remove('active')
 });
 
+
 btnPopup.addEventListener('click', () => {
-  wrapper.classList.toggle('active-popup');
+  if (wrapper.classList.contains('active-popup')) {
+    wrapper.classList.remove('active-popup');
+    wrapper.classList.remove('active')
+    wrapper.classList.remove('activetwo')
+  } else {
+    wrapper.classList.add('active-popup');
+    
+  }
 });
 
 btnRegistroPopup.addEventListener('click', () => {
-  wrapper.classList.toggle('active-popup');
-  wrapper.classList.toggle('active');
+  if (wrapper.classList.contains('active-popup')) {
+    wrapper.classList.remove('active-popup');
+    wrapper.classList.remove('active')
+    wrapper.classList.remove('activetwo')
+
+  } else {
+    wrapper.classList.add('active-popup');
+    wrapper.classList.add('active');
+  }
 });
 
 iconClose.addEventListener('click', () => {
-  wrapper.classList.remove('active-popup');
+  wrapper.classList.remove('active-popup')
 });
 
 forgot.addEventListener('click', () => {
-  wrapper.classList.toggle('activetwo');
+  wrapper.classList.add('activetwo')
 });
 
 backtoLogin.addEventListener('click', () => {
-  wrapper.classList.toggle('activetwo');
+  wrapper.classList.remove('activetwo')
 });
 
 
@@ -121,8 +136,9 @@ function onLoginUser(event) {
       if(resp.logged){ //se a propriedade logged for true então faça o que tiver dentro do if
         const token = resp.bearer //pegar o token bearer da API
         sessionStorage.setItem("token", token); //joga o token em uma sessão (assinatura de login)
+        window.location.href = './pagina adm/index.html';
       }else{
-        document.getElementById('error_login').innerHTML = "Usuário ou senha invalido/s" //Define mensagem no html
+        document.getElementById('error_login').innerHTML = "Usuário ou senha inválido(s)" //Define mensagem no html
       }
     })
     .catch((err) => {

@@ -241,7 +241,6 @@ h4 {
 .input-box input:focus~label,
 .input-box input:valid~label {
     top: -5px;
-
 }
 
 .input-box input {
@@ -251,6 +250,7 @@ h4 {
     border: none;
     outline: none;
 }
+
 
 .input-box .icon {
     position: absolute;
@@ -326,4 +326,23 @@ h4 {
 .login-register p a:hover {
     text-decoration: underline;
 
+}
+
+/*codigo da api*/
+
+label#response{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+ 
+    color: green;
+}
+
+label#error_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: rgb(255, 0, 0);
 }

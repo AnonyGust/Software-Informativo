@@ -29,14 +29,14 @@
             <ion-icon name="close"></ion-icon>
         </span>
         <div class="form-box login">
-
+            
             <form id="login_form" onsubmit="onLoginUser(event)">
                 <h2>Login</h2>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" required id="login_ra" maxlength="100">
+                    <input type="text" required id="login_ra" maxlength="13">
                     <label>Ra</label>
                 </div>
                 <div class="input-box">
@@ -51,10 +51,11 @@
                     <a href="#" class="forgot-password-link">esqueceu sua senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
+                <label id="error_login"></label>
                 <div class="login-register">
                     <p>não possui uma conta?<a href="#" class="register-link"> Registrar</a></p>
                 </div>
-                <label id="error_login"></label>
+                
 
             </form>
 
@@ -91,7 +92,7 @@
                     <span class="icon">
                         <ion-icon name="school"></ion-icon>
                     </span>
-                    <input type="text" required id="register_ra">
+                    <input type="text" required id="register_ra" maxlength="13">
                     <label>Ra</label>
                 </div>
                 <div class="input-box">
@@ -99,7 +100,7 @@
                         <ion-icon name="mail"></ion-icon>
                     </span>
                     <input type="email" required id="register_email">
-                    <label>Email</label>
+                    <label for="register_email">Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
