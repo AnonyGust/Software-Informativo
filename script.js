@@ -8,12 +8,22 @@ const forgot = document.querySelector('.forgot-password-link');
 const backtoLogin = document.querySelector('.back-to-login');
 const response = document.getElementById("response")
 const base_uri = 'http://localhost:5230/api'
-//ABACATE
+
 registerLink.addEventListener('click', () => {
+  //limpa os campos quando passa pra outro forms
+  document.getElementById('login_ra').value=""
+  document.getElementById('login_password').value=""
+  //
   wrapper.classList.add('active')
 });
 
 loginLink.addEventListener('click', () => {
+  //limpa os campos quando passa pra outro forms
+  document.getElementById('register_name').value=""
+  document.getElementById('register_ra').value=""
+  document.getElementById('register_email').value=""
+  document.getElementById('register_password').value=""
+  //
   wrapper.classList.remove('active')
 });
 
@@ -46,11 +56,17 @@ iconClose.addEventListener('click', () => {
 });
 
 forgot.addEventListener('click', () => {
+    //limpa os campos quando passa pra outro forms
+    document.getElementById('login_ra').value=""
+    document.getElementById('login_password').value=""
+    //
   wrapper.classList.add('activetwo')
 });
 
 backtoLogin.addEventListener('click', () => {
   wrapper.classList.remove('activetwo')
+
+
 });
 
 
