@@ -1,72 +1,321 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Minha Landing Page</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
+
 <body>
-  <header>
-    <nav class="navigation">
-        <div class="logo">
-            <img class="imgone" src="img/logo infatec.png" alt="">
-            <img class="imgtwo" src="img/INFATEC (2).png" alt="">
-        </div>
-    </nav>
-</header>
+	<header>
+		<nav class="navigation">
+			<div class="logo">
+				<img class="imgone" src="img/logo infatec.png" alt="">
+				<img class="imgtwo" src="img/INFATEC (2).png" alt="">
+			</div>
+		</nav>
+	</header>
 	<main>
 		<div class="center">
 			<ion-icon class="eventos-icon" name="school"></ion-icon>
-      		<button id="eventos">Eventos</button>
+			<button id="eventos">Eventos</button>
 			<ion-icon class="avisos-icon" name="alert-circle"></ion-icon>
-      		<button id="avisos">Avisos</button>
+			<button id="avisos">Avisos</button>
 			<ion-icon class="cronogramas-icon" name="calendar"></ion-icon>
-      		<button id="cronogramas">Cronogramas</button>
-    	</div>
-    	<form id="eventos-form">
-    		<span class="icon-close">
-          <ion-icon name="close"></ion-icon>
-        </span>
-    		<h2>Enviar Evento</h2>
-      		<label for="titulo">Título do Evento:</label>
-      		<input type="text" id="titulo" name="titulo">
-      		<label for="descricao">Descrição do Evento:</label>
-      		<textarea id="descricao" name="descricao"></textarea>
-      		<label for="imagem">Anexar Imagem:</label>
-      		<input type="file" id="imagem" name="imagem">
-      		<button type="submit">Enviar</button>
-    	</form>
-
-    	<form id="avisos-form">
-    		<span class="icon-close">
-          <ion-icon name="close"></ion-icon>
-        </span>
-    		<h2>Enviar Aviso</h2>
-      		<label for="aviso">Descrição do Aviso:</label>
-      		<input type="text" id="aviso" name="aviso">
-      		<label for="imagem">Anexar Imagem:</label>
-      		<input type="file" id="imagem" name="imagem">
-      		<button type="submit">Enviar</button>
+			<button id="cronogramas">Cronogramas</button>
+		</div>
+		<form id="eventos-form">
+			<span class="icon-close">
+				<ion-icon name="close"></ion-icon>
+			</span>
+			<h2>Enviar Evento</h2>
+			<label for="titulo">Título do Evento:</label>
+			<input type="text" id="titulo" name="titulo">
+			<label for="descricao">Descrição do Evento:</label>
+			<textarea id="descricao" name="descricao"></textarea>
+			<label for="imagem">Anexar Imagem:</label>
+			<input type="file" id="imagem" name="imagem">
+			<button id="btnEventos" type="submit"> <ion-icon name="send"></ion-icon>Enviar</button>
 		</form>
 
-    	<form id="cronogramas-form">
-    		<span class="icon-close">
-          <ion-icon name="close"></ion-icon>
-        </span>
-    		<h2>Enviar Cronograma</h2>
-      		<label for="titulo">Título do Cronograma:</label>
-      		<input type="text" id="titulo" name="titulo">
-      		<label for="descricao">Descrição do Cronograma:</label>
-      		<textarea id="descricao" name="descricao"></textarea>
-      		<label for="imagem">Anexar Imagem:</label>
-      		<input type="file" id="imagem" name="imagem">
-      		<button type="submit">Enviar</button>
-    	</form>
+		<form id="avisos-form">
+			<span class="icon-close">
+				<ion-icon name="close"></ion-icon>
+			</span>
+			<h2>Enviar Aviso</h2>
+			<label for="aviso">Descrição do Aviso:</label>
+			<textarea id="aviso" name="aviso"></textarea>
+			<label for="imagem">Anexar Imagem:</label>
+			<input type="file" id="imagem" name="imagem">
+			<button id="btnAvisos" type="submit"><ion-icon name="send"></ion-icon>Enviar</button>
+		</form>
 
-  	</main>
-  	<script src="script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+		<form id="cronogramas-form">
+			<span class="icon-close">
+				<ion-icon name="close"></ion-icon>
+			</span>
+			<h2>Cronogramas</h2>
+			<div class="form-row">
+				<label for="curso1">Nome do curso:</label>
+				<input type="text" id="curso1" name="curso1">
+				<label for="periodo1">Período:</label>
+				<select id="periodo1" name="periodo1">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto1">Foto do professor:</label>
+					<input type="file" id="foto1" name="foto1">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso2">Nome do curso:</label>
+				<input type="text" id="curso2" name="curso2">
+				<label for="periodo2">Período:</label>
+				<select id="periodo2" name="periodo2">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto2">Foto do Professor:</label>
+					<input type="file" id="foto2" name="foto2">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso3">Nome do curso:</label>
+				<input type="text" id="curso3" name="curso3">
+				<label for="periodo3">Período:</label>
+				<select id="periodo3" name="periodo3">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto3">Foto do Professor:</label>
+					<input type="file" id="foto3" name="foto3">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso4">Nome do curso:</label>
+				<input type="text" id="curso4" name="curso4">
+				<label for="periodo4">Período:</label>
+				<select id="periodo4" name="periodo4">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto4">Foto do Professor:</label>
+					<input type="file" id="foto4" name="foto4">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso5">Nome do curso:</label>
+				<input type="text" id="curso5" name="curso5">
+				<label for="periodo5">Período:</label>
+				<select id="periodo5" name="periodo5">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto5">Foto do Professor:</label>
+					<input type="file" id="foto5" name="foto5">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso6">Nome do curso:</label>
+				<input type="text" id="curso6" name="curso6">
+				<label for="periodo6">Período:</label>
+				<select id="periodo6" name="periodo6">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto6">Foto do Professor:</label>
+					<input type="file" id="foto6" name="foto6">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso7">Nome do curso:</label>
+				<input type="text" id="curso7" name="curso7">
+				<label for="periodo7">Período:</label>
+				<select id="periodo7" name="periodo7">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto7">Foto do Professor:</label>
+					<input type="file" id="foto7" name="foto7">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso8">Nome do curso:</label>
+				<input type="text" id="curso8" name="curso8">
+				<label for="periodo8">Período:</label>
+				<select id="periodo8" name="periodo8">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto8">Foto do Professor:</label>
+					<input type="file" id="foto8" name="foto8">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso9">Nome do curso:</label>
+				<input type="text" id="curso9" name="curso9">
+				<label for="periodo9">Período:</label>
+				<select id="periodo9" name="periodo9">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto9">Foto do Professor:</label>
+					<input type="file" id="foto9" name="foto9">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso10">Nome do curso:</label>
+				<input type="text" id="curso10" name="curso10">
+				<label for="periodo10">Período:</label>
+				<select id="periodo10" name="periodo10">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto10">Foto do Professor:</label>
+					<input type="file" id="foto10" name="foto10">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso11">Nome do curso:</label>
+				<input type="text" id="curso11" name="curso11">
+				<label for="periodo11">Período:</label>
+				<select id="periodo11" name="periodo11">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto11">Foto do Professor:</label>
+					<input type="file" id="foto11" name="foto11">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+			<div class="form-row">
+				<label for="curso12">Nome do curso:</label>
+				<input type="text" id="curso12" name="curso12">
+				<label for="periodo12">Período:</label>
+				<select id="periodo12" name="periodo12">
+					<option value="dia">Dia</option>
+					<option value="noite">Noite</option>
+				</select>
+				<label for="horario">Horário de início:</label>
+				<input type="time" id="horario" name="horario">
+				<label for="horario">Horário final:</label>
+				<input type="time" id="horario" name="horario">
+				<div class="nomeprof">
+					<label for="foto12">Foto do Professor:</label>
+					<input type="file" id="foto12" name="foto12">
+				</div>
+				<button id="btnCronograma">
+					<ion-icon name="send"></ion-icon> Enviar
+				</button>
+			</div>
+			<hr>
+
+		</form>
+
+	</main>
+	<script src="script.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
-  
