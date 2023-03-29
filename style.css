@@ -100,7 +100,7 @@ header {
 
 /* Tamanho da div active */
 .wrapper.active {
-    height: 520px;
+    height: 550px;
     top: 50px;
 }
 
@@ -215,7 +215,7 @@ h4 {
     font-size: 2em;
     color: #162938;
     text-align: center;
-
+    margin-top: 20px;
 }
 
 .input-box {
@@ -238,9 +238,35 @@ h4 {
     transition: .3s;
 }
 
+.input-box label {
+    position: absolute;
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+}
+
 .input-box input:focus~label,
 .input-box input:valid~label {
-    top: -5px;
+    top: -1px;
+    font-size: 15px;
+    color: #292727;
+}
+
+input#register_email.invalid {
+    margin-bottom: 7px;
+}
+
+#text {
+    text-align: center;
+}
+
+#termos{
+    text-align: center;
+    font-weight: bold;
+}
+
+span#text,
+span#text2 {
+    font-size: 13px;
 }
 
 .input-box input {
@@ -305,7 +331,7 @@ h4 {
     color: white;
 }
 
-.btn:hover{
+.btn:hover {
     color: rgb(219, 212, 212);
 }
 
@@ -321,7 +347,9 @@ h4 {
     color: #162938;
     text-decoration: none;
     font-weight: 600;
+    
 }
+
 
 .login-register p a:hover {
     text-decoration: underline;
@@ -330,16 +358,16 @@ h4 {
 
 /*codigo da api*/
 
-label#response{
+label#response {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
- 
+
     color: green;
 }
 
-label#error_login{
+label#error_login {
     display: flex;
     justify-content: center;
     align-items: center;

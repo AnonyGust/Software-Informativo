@@ -11,20 +11,21 @@ const base_uri = 'http://localhost:5230/api'
 
 registerLink.addEventListener('click', () => {
   //limpa os campos quando passa pra outro forms
-  document.getElementById('login_ra').value=""
-  document.getElementById('login_password').value=""
+  document.getElementById('login_ra').value = ""
+  document.getElementById('login_password').value = ""
   //
   wrapper.classList.add('active')
 });
 
 loginLink.addEventListener('click', () => {
   //limpa os campos quando passa pra outro forms
-  document.getElementById('register_name').value=""
-  document.getElementById('register_ra').value=""
-  document.getElementById('register_email').value=""
-  document.getElementById('register_password').value=""
+  document.getElementById('register_name').value = ""
+  document.getElementById('register_ra').value = ""
+  document.getElementById('register_email').value = ""
+  document.getElementById('register_password').value = ""
   document.getElementById('error_login').innerHTML = ""
-  response.innerHTML = ""
+  document.getElementById('text').innerHTML = ""
+
   //
   wrapper.classList.remove('active')
 });
@@ -37,7 +38,7 @@ btnPopup.addEventListener('click', () => {
     wrapper.classList.remove('activetwo')
   } else {
     wrapper.classList.add('active-popup');
-    
+
   }
 });
 
@@ -58,22 +59,23 @@ iconClose.addEventListener('click', () => {
 });
 
 forgot.addEventListener('click', () => {
-    //limpa os campos quando passa pra outro forms
-    document.getElementById('login_ra').value=""
-    document.getElementById('login_password').value=""
-    //
+  //limpa os campos quando passa pra outro forms
+  document.getElementById('login_ra').value = ""
+  document.getElementById('login_password').value = ""
+  //
   wrapper.classList.add('activetwo')
 });
 
 backtoLogin.addEventListener('click', () => {
+  document.getElementById('text2').value = ""; // adicionando essa linha de código para limpar o campo
+  document.getElementById('text2').innerHTML = ""
+  document.getElementById('forgot_email').value = ""
   wrapper.classList.remove('activetwo')
-
-
 });
 
 //INTEGRACAO BASICA API
 
-function onRegisterNewUser(){
+function onRegisterNewUser() {
   const obj = {
     password: document.getElementById("register_password").value,
     name: document.getElementById("register_name").value,
@@ -89,9 +91,9 @@ function onRegisterNewUser(){
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(obj)
-    }
-  
- 
+  }
+
+
 
   fetch(`${base_uri}/Login/CreateUser`, header).then(() => {
     response.innerHTML = "Cadastrado com sucesso"
@@ -143,23 +145,33 @@ function onLoginUser(event) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(obj)
-  }//Define o cabeçalho HTTP (necessário pra fazer a requisição e necessário seguir este padrão)
+  } //Define o cabeçalho HTTP (necessário pra fazer a requisição e necessário seguir este padrão)
 
   //Metodo fetch para fazer a requisição para a API
   fetch(`${base_uri}/Login/LoginUser`, header).then((res) => { //Primeiro then é se a requisição retornou sucesso
     res.json().then((resp) => { //res.json transforma a resposta em json
-      if(resp.logged){ //se a propriedade logged for true então faça o que tiver dentro do if
-        const token = resp.bearer //pegar o token bearer da API
-        sessionStorage.setItem("token", token); //joga o token em uma sessão (assinatura de login)
-        window.location.href = './pagina adm/index.html';
-      }else{
-        document.getElementById('error_login').innerHTML = "Usuário ou senha inválido(s)" //Define mensagem no html
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    }) //erro tecnico
+        if (resp.logged) { //se a propriedade logged for true então faça o que tiver dentro do if
+          const token = resp.bearer //pegar o token bearer da API
+          sessionStorage.setItem("token", token); //joga o token em uma sessão (assinatura de login)
+          window.location.href = './pagina adm/index.html';
+        } else {
+          document.getElementById('error_login').innerHTML = "Usuário ou senha inválido(s)" //Define mensagem no html
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      }) //erro tecnico
   }).catch((err) => {
-     console.log(err) //erro tecnico
+    console.log(err) //erro tecnico
   })
+  document.getElementById('login_ra').value="";
+  document.getElementById('login_password').value="";
+}
+
+function onInsertEvent(){
+  const obj = {
+    title:document.getElementById('titulo').value,
+    descricao:document.getElementById('descricao').value
+
+  }
 }

@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
     <title>Document</title>
 </head>
 
@@ -14,8 +14,8 @@
     <header>
         <nav class="navigation">
             <div class="logo">
-                <img class="imgone" src="img/logo infatec.png" alt="">
-                <img class="imgtwo" src="img/INFATEC (2).png" alt="">
+                <img class="imgone" src="img/logo infatec.png" alt="" />
+                <img class="imgtwo" src="img/INFATEC (2).png" alt="" />
             </div>
             <div class="btns">
                 <button class="btnLogin-popup">Login</button>
@@ -29,49 +29,52 @@
             <ion-icon name="close"></ion-icon>
         </span>
         <div class="form-box login">
-            
             <form id="login_form" onsubmit="onLoginUser(event)">
                 <h2>Login</h2>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" required id="login_ra" maxlength="13">
+                    <input type="text" required id="login_ra" maxlength="13" />
                     <label>Ra</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="lock-closed"></ion-icon>
                     </span>
-                    <input type="password" required id="login_password">
+                    <input type="password" required id="login_password" />
                     <label>Senha</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Relembre meus dados</label>
+                    <label><input type="checkbox" />Relembre meus dados</label>
                     <a href="#" class="forgot-password-link">esqueceu sua senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
                 <label id="error_login"></label>
                 <div class="login-register">
-                    <p>não possui uma conta?<a href="#" class="register-link"> Registrar</a></p>
+                    <p>
+                        não possui uma conta?<a href="#" class="register-link">
+                            Registrar</a>
+                    </p>
                 </div>
-                
-
             </form>
-
         </div>
 
         <div class="forgot-password">
             <form id="forgot-password-form" action="#">
                 <h2>Esqueceu sua senha</h2>
-                <h4>Digite seu e-mail para receber o código <br> e redefinir sua senha</h4>
+                <h4>
+                    Digite seu e-mail para receber o código <br />
+                    e redefinir sua senha
+                </h4>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
 
-                    <input type="email" required>
+                    <input type="text" required id="forgot_email" />
                     <label>Email</label>
+                    <span id="text2"></span>
                 </div>
                 <button type="submit" class="btn">Enviar</button>
                 <p><a href="#" class="back-to-login">Voltar ao login</a></p>
@@ -81,50 +84,52 @@
         <div class="form-box register">
             <h2>Registrar</h2>
 
-                <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="person"></ion-icon>
-                    </span>
-                    <input type="text" required id="register_name">
-                    <label>Nome</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="school"></ion-icon>
-                    </span>
-                    <input type="text" required id="register_ra" maxlength="13">
-                    <label>Ra</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="mail"></ion-icon>
-                    </span>
-                    <input type="email" required id="register_email">
-                    <label for="register_email">Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="lock-closed"></ion-icon>
-                    </span>
-                    <input type="password" required id="register_password">
-                    <label>Senha</label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">Concordo com os termos e condições</label>
-                </div>
-                <button type="submit" class="btn" onclick="onRegisterNewUser()"> Cadastrar</button>
-                <label id="response"></label>
-                <div class="login-register">
-                    <p>Já possui uma conta?<a href="#" class="login-link"> Entrar</a></p>
-                </div>
-
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="person"></ion-icon>
+                </span>
+                <input type="text" required id="register_name" />
+                <label>Nome</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="school"></ion-icon>
+                </span>
+                <input type="text" required id="register_ra" maxlength="13" />
+                <label>Ra</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+                <input type="text" required id="register_email" />
+                <label for="register_email">Email</label>
+                <span id="text"></span>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+                <input type="password" required id="register_password" />
+                <label>Senha</label>
+            </div>
+            <div class="remember-forgot">
+                <label id="termos"> Ao Criar a conta você concorda com os <br> Termos e Condições</label>
+            </div>
+            <button type="submit" class="btn" onclick="onRegisterNewUser()">
+                Cadastrar
+            </button>
+            <label id="response"></label>
+            <div class="login-register">
+                <p>Já possui uma conta?<a href="#" class="login-link"> Entrar</a></p>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="script2.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
 
 </html>
