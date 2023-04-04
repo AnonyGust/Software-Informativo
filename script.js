@@ -25,6 +25,7 @@ loginLink.addEventListener('click', () => {
   document.getElementById('register_password').value = ""
   document.getElementById('error_login').innerHTML = ""
   document.getElementById('text').innerHTML = ""
+  response.innerHTML = "" //limpa quando é cadastrado com sucesso
 
   //
   wrapper.classList.remove('active')
@@ -75,31 +76,7 @@ backtoLogin.addEventListener('click', () => {
 
 //INTEGRACAO BASICA API
 
-function onRegisterNewUser() {
-  const obj = {
-    password: document.getElementById("register_password").value,
-    name: document.getElementById("register_name").value,
-    cpf: "111.111.111-11",
-    ra: document.getElementById("register_ra").value,
-    email: document.getElementById("register_email").value,
-    type: 'Teste'
-  }
-  const header = {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(obj)
-  }
-
-
-
-  fetch(`${base_uri}/Login/CreateUser`, header).then(() => {
-    response.innerHTML = "Cadastrado com sucesso"
-  }).catch((err) => console.error(`O erro foi esse ${err}`))
-}
-
+//FUNÇÃO DE REGISTRO
 
 function onRegisterNewUser() {
   const email = emailInput.value;
