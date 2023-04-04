@@ -101,32 +101,34 @@ function onRegisterNewUser() {
 }
 
 
-//FUNÇÃO PARA REGISTRO
 function onRegisterNewUser() {
-  const obj = {
-    password: document.getElementById("register_password").value,
-    name: document.getElementById("register_name").value,
-    cpf: "111.111.111-11",
-    ra: document.getElementById("register_ra").value,
-    email: document.getElementById("register_email").value,
-    type: 'Teste'
+  const email = emailInput.value;
+
+  if (!isValidEmail(email)) {
+      alert('email inválido')
+  } else {
+      // código para enviar o formulário
+      const obj = {
+          password: document.getElementById("register_password").value,
+          name: document.getElementById("register_name").value,
+          cpf: "111.111.111-11",
+          ra: document.getElementById("register_ra").value,
+          email: document.getElementById("register_email").value,
+          type: 'Teste'
+        }
+        const header = {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(obj)
+        }
+      
+        fetch(`${base_uri}/Login/CreateUser`, header).then(() => {
+          response.innerHTML = "Cadastrado com sucesso"
+        }).catch(() => console.error("Erro"))
   }
-  const header = {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(obj)
-  }
-
-  fetch(`${base_uri}/Login/CreateUser`, header).then(() => {
-    response.innerHTML = "Cadastrado com sucesso"
-  }).catch(() => console.error("Erro"))
-}
-
-function onLoginUser() {
-
 }
 
 //FUNÇÃO PARA LOGIN
@@ -153,13 +155,14 @@ function onLoginUser(event) {
         if (resp.logged) { //se a propriedade logged for true então faça o que tiver dentro do if
           const token = resp.bearer //pegar o token bearer da API
           sessionStorage.setItem("token", token); //joga o token em uma sessão (assinatura de login)
-          window.location.href = './pagina adm/index.html';
+          window.location.href = './pagina_adm/index.html';
         } else {
           document.getElementById('error_login').innerHTML = "Usuário ou senha inválido(s)" //Define mensagem no html
         }
       })
       .catch((err) => {
         console.log(err);
+        document.getElementById('error_login').innerHTML = "Usuário ou senha inválido(s)" 
       }) //erro tecnico
   }).catch((err) => {
     console.log(err) //erro tecnico
