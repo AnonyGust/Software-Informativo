@@ -1,4 +1,6 @@
 const wrapper = document.querySelector('.wrapper');
+const loginRaInput = document.getElementById("login_ra");
+const registerRaInput = document.getElementById("register_ra");
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
 const btnPopup = document.querySelector('.btnLogin-popup');
@@ -10,7 +12,7 @@ const response = document.getElementById("response")
 const base_uri = 'http://localhost:5230/api'
 
 registerLink.addEventListener('click', () => {
-  //limpa os campos quando passa pra outro forms
+  //limpa os campos quando passa pro forms de login
   document.getElementById('login_ra').value = ""
   document.getElementById('login_password').value = ""
   //
@@ -18,41 +20,56 @@ registerLink.addEventListener('click', () => {
 });
 
 loginLink.addEventListener('click', () => {
-  //limpa os campos quando passa pra outro forms
+  //limpa os campos quando passa pro forms de registro
   document.getElementById('register_name').value = ""
   document.getElementById('register_ra').value = ""
   document.getElementById('register_email').value = ""
   document.getElementById('register_password').value = ""
   document.getElementById('error_login').innerHTML = ""
   document.getElementById('text').innerHTML = ""
-  response.innerHTML = "" //limpa quando é cadastrado com sucesso
-
+  response.innerHTML = ""
   //
   wrapper.classList.remove('active')
 });
 
+//ABRE O FORMULÁRIO DE LOGIN ASSIM QUE A PÁGINA É CARREGADA
+
+window.addEventListener('load', () => {
+  wrapper.classList.add('active-popup');
+});
+
 
 btnPopup.addEventListener('click', () => {
+    //LIMPA OS CAMPOS QUANDO CLICADO NO BOTÃO DE ENTRAR
+  document.getElementById('register_name').value = ""
+  document.getElementById('register_ra').value = ""
+  document.getElementById('register_email').value = ""
+  document.getElementById('register_password').value = ""
+  document.getElementById('error_login').innerHTML = ""
+  document.getElementById('text').innerHTML = ""
+  response.innerHTML = ""
   if (wrapper.classList.contains('active-popup')) {
     wrapper.classList.remove('active-popup');
     wrapper.classList.remove('active')
-    wrapper.classList.remove('activetwo')
-  } else {
-    wrapper.classList.add('active-popup');
-
+    wrapper.classList.remove('activetwo');
   }
+  wrapper.classList.add('active-popup');
+
+
 });
 
 btnRegistroPopup.addEventListener('click', () => {
+  //LIMPA OS CAMPOS QUANDO CLICADO NO BOTÃO DE REGISTRO
+  document.getElementById('login_ra').value = ""
+  document.getElementById('login_password').value = ""
   if (wrapper.classList.contains('active-popup')) {
     wrapper.classList.remove('active-popup');
-    wrapper.classList.remove('active')
-    wrapper.classList.remove('activetwo')
-
-  } else {
-    wrapper.classList.add('active-popup');
-    wrapper.classList.add('active');
+    wrapper.classList.remove('active');
+    wrapper.classList.remove('activetwo');
   }
+  wrapper.classList.add('active-popup');
+  wrapper.classList.add('active');
+
 });
 
 iconClose.addEventListener('click', () => {
@@ -60,7 +77,7 @@ iconClose.addEventListener('click', () => {
 });
 
 forgot.addEventListener('click', () => {
-  //limpa os campos quando passa pra outro forms
+  //limpa os campos quando passa para o forms de recuperação de senha
   document.getElementById('login_ra').value = ""
   document.getElementById('login_password').value = ""
   //
@@ -76,36 +93,32 @@ backtoLogin.addEventListener('click', () => {
 
 //INTEGRACAO BASICA API
 
-//FUNÇÃO DE REGISTRO
-
+//FUNÇÃO PARA REGISTRO
 function onRegisterNewUser() {
-  const email = emailInput.value;
-
-  if (!isValidEmail(email)) {
-      alert('email inválido')
-  } else {
-      // código para enviar o formulário
-      const obj = {
-          password: document.getElementById("register_password").value,
-          name: document.getElementById("register_name").value,
-          cpf: "111.111.111-11",
-          ra: document.getElementById("register_ra").value,
-          email: document.getElementById("register_email").value,
-          type: 'Teste'
-        }
-        const header = {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(obj)
-        }
-      
-        fetch(`${base_uri}/Login/CreateUser`, header).then(() => {
-          response.innerHTML = "Cadastrado com sucesso"
-        }).catch(() => console.error("Erro"))
+  const obj = {
+    password: document.getElementById("register_password").value,
+    name: document.getElementById("register_name").value,
+    cpf: "111.111.111-11",
+    ra: document.getElementById("register_ra").value,
+    email: document.getElementById("register_email").value,
+    type: 'Teste'
   }
+  const header = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj)
+  }
+
+  fetch(`${base_uri}/Login/CreateUser`, header).then(() => {
+    response.innerHTML = "Cadastrado com sucesso"
+  }).catch(() => console.error("Erro"))
+}
+
+function onLoginUser() {
+
 }
 
 //FUNÇÃO PARA LOGIN
@@ -132,26 +145,33 @@ function onLoginUser(event) {
         if (resp.logged) { //se a propriedade logged for true então faça o que tiver dentro do if
           const token = resp.bearer //pegar o token bearer da API
           sessionStorage.setItem("token", token); //joga o token em uma sessão (assinatura de login)
-          window.location.href = './pagina_adm/index.html';
+          window.location.href = './pagina adm/index.html';
         } else {
           document.getElementById('error_login').innerHTML = "Usuário ou senha inválido(s)" //Define mensagem no html
         }
       })
       .catch((err) => {
         console.log(err);
-        document.getElementById('error_login').innerHTML = "Usuário ou senha inválido(s)" 
       }) //erro tecnico
   }).catch((err) => {
     console.log(err) //erro tecnico
   })
-  document.getElementById('login_ra').value="";
-  document.getElementById('login_password').value="";
 }
 
-function onInsertEvent(){
-  const obj = {
-    title:document.getElementById('titulo').value,
-    descricao:document.getElementById('descricao').value
+//Permite que somente números sejam digitados no campo do RA no LOGIN e REGISTRO
+// Adicione o manipulador de eventos "input" para os dois elementos (inputs)
+loginRaInput.addEventListener("input", onlyNumbersInputHandler);
+registerRaInput.addEventListener("input", onlyNumbersInputHandler);
 
+function onlyNumbersInputHandler(event) {
+  // Obtenha o valor inserido no campo de entrada (input)
+  const value = event.target.value;
+
+  // Verifique se o valor inserido é um número usando expressões regulares
+  const onlyNumbers = /^\d*$/.test(value);
+
+  // Se o valor não for um número, substitua-o por uma string vazia
+  if (!onlyNumbers) {
+    event.target.value = "";
   }
 }

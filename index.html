@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="media.css" />
+    <link rel="stylesheet" href="animationSquare.css">
     <title>Document</title>
 </head>
 
@@ -23,6 +24,17 @@
             </div>
         </nav>
     </header>
+
+    <section>
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+        <div class="square" style="--i:5;"></div>
+        <div class="square" style="--i:6;"></div>
+        <div class="square" style="--i:7;"></div>
+        
 
     <div class="wrapper">
         <span class="icon-close">
@@ -46,14 +58,14 @@
                     <label>Senha</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox" />Relembre meus dados</label>
+                    <label id="relembre"><input type="checkbox" />Relembre meus dados</label>
                     <a href="#" class="forgot-password-link">esqueceu sua senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
                 <label id="error_login"></label>
                 <div class="login-register">
                     <p>
-                        não possui uma conta?<a href="#" class="register-link">
+                        Não possui uma conta?<a href="#" class="register-link">
                             Registrar</a>
                     </p>
                 </div>
@@ -125,6 +137,7 @@
             </div>
         </div>
     </div>
+    </section>
 
     <script src="script.js"></script>
     <script src="script2.js"></script>

@@ -5,14 +5,17 @@
     font-family: sans-serif;
 }
 
-body {
+body{
+    background-color: antiquewhite;
+}
+
+section{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: antiquewhite;
     background-size: contain;
-
 }
 
 header {
@@ -53,6 +56,13 @@ header {
     display: flex;
     justify-content: center;
     gap: 10px;
+}
+
+#relembre,
+.forgot-password-link{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .navigation .btnLogin-popup,
@@ -170,7 +180,8 @@ h4 {
     position: relative;
     top: 20px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 .back-to-login:hover {
@@ -347,7 +358,8 @@ span#text2 {
     color: #162938;
     text-decoration: none;
     font-weight: 600;
-    
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 

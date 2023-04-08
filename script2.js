@@ -19,6 +19,37 @@ emailInput.addEventListener('input', () => {
     }
 });
 
+function onRegisterNewUser() {
+    const email = emailInput.value;
+
+    if (!isValidEmail(email)) {
+        alert('email inválido')
+    } else {
+        // código para enviar o formulário
+        const obj = {
+            password: document.getElementById("register_password").value,
+            name: document.getElementById("register_name").value,
+            cpf: "111.111.111-11",
+            ra: document.getElementById("register_ra").value,
+            email: document.getElementById("register_email").value,
+            type: 'Teste'
+          }
+          const header = {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj)
+          }
+        
+          fetch(`${base_uri}/Login/CreateUser`, header).then(() => {
+            response.innerHTML = "Cadastrado com sucesso"
+          }).catch(() => console.error("Erro"))
+    }
+}
+
+
 //FORMULÁRIO DE ESQUECEU SENHA
 // função para verificar se o email inserido é válido
 function isValidEmail(email) {
